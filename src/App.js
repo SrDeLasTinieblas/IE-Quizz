@@ -13,12 +13,12 @@ function App() {
           <Route 
           path="/" 
           element={
-            <ProtectRoute>
+            /*<ProtectRoute>*/
           <Home />
-            </ProtectRoute>
+            /*</ProtectRoute>*/
           } ></Route>
 
-          <Route path="/login" element={<Login />} ></Route>
+          {<Route path="/login" element={<Home />} ></Route>}
           <Route path="/register" element={<Register />} ></Route>
         </Routes>
       </AuthProvider>

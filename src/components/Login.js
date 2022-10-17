@@ -27,6 +27,7 @@ export function Login() {
       navigate('/')
     } catch (err) {
       //console.log(err.code)
+      navigate('/')
       if (err.code === 'auth/invalid-email') {
         setError('Correo invalido')
       } else if (err.code === 'auth/weak-password') {
