@@ -4,6 +4,10 @@ import bandera from "../images/Bandera_del_peru.jpg"
 import "../components/css/styleHome.css"
 import { useEffect, useState, useStates } from "react"
 import preguntas from "./preguntas";
+import axios from "axios"
+import { async } from "@firebase/util"
+
+const UrlPost = "https://localhost:7163/usuarios/agregar";
 
 export function Home() {
 
@@ -36,7 +40,7 @@ console.log(pregunta)
     (res=>console.log(res))
   )*/
 
-  const [ pregunta, setPregunta ] = useState();
+  //const [ pregunta, setPregunta ] = useState();
   /*useEffect(() => {
     fetch('https://my-json-server.typicode.com/SrDeLasTinieblas/apiRest/db')
       .then((res) => res.json())
@@ -52,6 +56,45 @@ console.log(pregunta)
     navigate('/login')
   }
 
+  const PeticionPost= async() =>{
+    //Access-Control-Allow-Headers: Authorization
+    //shopApi.post(peticion, dataPeticion).then(respuesta => { console.log("respuesta.status") })
+    await axios.post(UrlPost, 
+      {
+        nombre: "User",
+        email: user.email,
+        puntuacion: String(puntacion)
+      }
+      ).then(response =>{
+    }).catch(err => console.log("error: "+err));
+  }
+  const [Usuario, setUsuario] = useState([]);
+
+  const requestInit = {
+    method: 'POST', // -- Aqui estamos diciendo que el metodo que vamos a usar es POST --
+    headers: { 'Content-Type': 'application/json' }, // -- Aqui estamos diciendo que el tipo de contenido que vamos a enviar es un json --
+    body: JSON.stringify(Usuario) // -- Aqui estamos diciendo que el body que vamos a enviar es un json --
+  }
+   /* fetch(post, requestInit)
+    .then(response => response.json())
+    .then(response => setUsuario(response))*/
+
+    //await axios.post(post, requestInit).then(respuesta => { console.log("respuesta.status") })
+
+   /* setUsuario({
+      nombre: "",
+            email: "",
+            puntuacion: ""
+        })*/
+
+  /*const headers = {
+    "Content-Type": "application/json",
+    Authorization: apiKey,
+  };
+  //const url = "http://localhost:5000/api/expenses/get-expenses";
+
+  axios.get(url, { headers });
+*/
 /*  const PrimeraRespuesta = () => {
     alert(user.email);  
   }
@@ -73,14 +116,12 @@ console.log(pregunta)
       e.target.classList.add(isCorrect ? "correct" : "incorrect");
       if(preguntaActual === preguntas.length - 1){
         setIsFinished(true);
+        PeticionPost()
       }else{
         setPreguntaAntual(preguntaActual + 1)
         setTiempoRestante(10);
       }
   }
-
-
-
 
   if(isFinished)
   return(
@@ -88,6 +129,8 @@ console.log(pregunta)
       <div className="app">
         <div className="juego-Terminado">
           <span > {" "}Obtuviste {puntacion} de {preguntas.length} {" "}</span>
+            {/*PeticionPost()*/}
+
           {/*<button>
             volver a jugar
           </button>*/}

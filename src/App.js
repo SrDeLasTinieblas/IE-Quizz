@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './components/Home';
-import { Login } from './components/Login';
+import  SignInSide from './components/SignInSide';
+import  Login from './components/Login';
 import { ProtectRoute } from './components/ProtectedRoute';
 import { Register } from './components/Register';
 import { AuthProvider } from './context/authContext';
@@ -13,12 +14,13 @@ function App() {
           <Route 
           path="/" 
           element={
-            /*<ProtectRoute>*/
+            <ProtectRoute>
           <Home />
-            /*</ProtectRoute>*/
+            </ProtectRoute>
           } ></Route>
 
-          {<Route path="/login" element={<Home />} ></Route>}
+          {<Route path="/login" element={<SignInSide />} ></Route>}
+          {/*<Route path="/login" element={<Login />} ></Route>*/}
           <Route path="/register" element={<Register />} ></Route>
         </Routes>
       </AuthProvider>
