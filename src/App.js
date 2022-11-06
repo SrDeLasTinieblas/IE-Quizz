@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './components/Home';
 import  SignInSide from './components/SignInSide';
-import  Login from './components/Login';
+import  {Login} from './components/Login';
 import { ProtectRoute } from './components/ProtectedRoute';
 import { Register } from './components/Register';
+import SignUp from './components/SignUp';
 import { AuthProvider } from './context/authContext';
 
 function App() {
@@ -19,9 +20,12 @@ function App() {
             </ProtectRoute>
           } ></Route>
 
-          {<Route path="/login" element={<SignInSide />} ></Route>}
-          {/*<Route path="/login" element={<Login />} ></Route>*/}
-          <Route path="/register" element={<Register />} ></Route>
+          {/*<Route path="/login" element={<SignInSide />} ></Route>*/}
+
+          {<Route path="/login" element={<Login />} ></Route>}
+          {<Route path="/register" element={<Register />} ></Route>}
+
+          {/*<Route path="/register" element={<SignUp />} ></Route>*/}
         </Routes>
       </AuthProvider>
     </div>

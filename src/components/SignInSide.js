@@ -16,7 +16,11 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import axios from "axios";
+import { useEffect } from 'react';
 
+
+const UrlGet = "https://localhost:7163/usuarios/loginUsuario";
 
 function Copyright(props) {
 
@@ -30,14 +34,28 @@ function Copyright(props) {
   }
 */
 
+/*const [Usuario, getUsuario] = useState([]);
+
+const PeticionGet = (e) =>{
+  //e.preventDefault();
+  console.log('Usuario == ' + "Usuario.firstName");
+  //Objeto[target.name] = objeto[target.value]
+  useEffect(() => {
+    axios.get(UrlGet).then((response) => {
+      //getUsuario(response.data);
+      console.log("response ==> " + response);
+    });
+  }, []);
+}*/
+
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
+      {/*'Copyright © '*/}
       {/*<Link color="inherit" href="https://mui.com/">
         Your Website
   </Link>*/}{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      {/*new Date().getFullYear()*/}
+      {/*'.'*/}
     </Typography>
   );
 }
@@ -52,9 +70,9 @@ export default function SignInSide() {
 
   const handleChange = ({ target: { name, value } }) => {
     setUsername({ ...username, [name]: value })
-    //console.log(name, value)
+    console.log(name, value)
   }
-
+//https://localhost:7163/usuarios/loginUsuario
   const [username, setUsername] = useState({
     email: '',
     password: ''
@@ -88,6 +106,26 @@ export default function SignInSide() {
       password: data.get('password'),
     });*/
   };
+
+  const iniciarSesion = async() => {
+    //console.log("email: " +username.email, "password:"+username.password);
+    axios.post(UrlGet,
+      {
+        email: username.email,
+        pass: username.password
+      }
+      ).then(response =>{
+        console.log(response.data);
+    }).catch(err => console.log("error: "+err));
+
+    /*await axios.get(UrlGet, {params: {email: useState.email, password: useState.pass}}).
+    then(response => {
+      console.log(response.data);
+    })
+    .catch(err => {
+      console.log(err);
+    })*/
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -125,7 +163,7 @@ export default function SignInSide() {
               {error && <p>{error}</p>}
             </Typography>
             
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate /*onSubmit={handleSubmit}*/ sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -153,10 +191,11 @@ export default function SignInSide() {
                 label="Remember me"
               />
               <Button
-                type="submit"
+                /*type="submit"*/
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={iniciarSesion}
               >
                 Sign In
               </Button>
