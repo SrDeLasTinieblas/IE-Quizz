@@ -19,6 +19,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from "axios";
 import { useEffect } from 'react';
 
+const theme = createTheme();
+
 export function Login() {
 
   const [username, setUsername] = useState({
@@ -43,14 +45,14 @@ export function Login() {
       navigate('/')
     } catch (err) {
       //console.log(err.code)
-      navigate('/')
+      //navigate('/')
       if (err.code === 'auth/invalid-email') {
         setError('Correo invalido')
-      } else if (err.code === 'auth/weak-password') {
-        setError('Contraseña minimo de de 6 digitos')
+      } else if (err.code === 'auth/wrong-password') {
+        setError('Contraseña no valida')
       }
-      else if (err.code === 'auth/email-already-in-use') {
-        setError('Correo ya esta en uso')
+      else if (err.code === 'auth/user-not-found') {
+        setError('Correo no valido')
       }
     }
 
@@ -58,7 +60,105 @@ export function Login() {
 
   return (
     <div>
-      
+      <ThemeProvider theme={theme}>
+        <Grid container component="main" sx={{ height: '100vh' }}>
+          <CssBaseline />
+          <Grid
+            item
+            xs={false}
+            sm={4}
+            md={7}
+            sx={{
+              backgroundImage: 'url(https://besthqwallpapers.com/Uploads/11-10-2017/23619/thumb2-peruvian-flag-national-flag-peru-silk-texture-flag-peru.jpg)',
+              backgroundRepeat: 'no-repeat',
+              backgroundColor: (t) =>
+                t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          />
+          <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+            <Box
+              sx={{
+                my: 8,
+                mx: 4,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography component="h1" variant="h5">
+                Sign in
+              </Typography>
+
+              <Typography color='red' component="h5" variant="h7">
+              {error && <p>{error}*</p>}
+              </Typography>
+
+              <Box component="form" noValidate /*onSubmit={handleSubmit}*/ sx={{ mt: 1 }}>
+
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  onChange={handleChange}
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  onChange={handleChange}
+                  autoComplete="current-password"
+                />
+                <FormControlLabel
+                  control={<Checkbox value="remember" color="primary" />}
+                  label="Remember me"
+                />
+                <Button
+                  /*type="submit"*/
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  onClick={handleSubmit}
+                >
+                  Sign In
+                </Button>
+                <Grid container>
+                  {/*<Grid item xs>
+                  <Link href="#" variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>*/}
+                  <Grid item>
+                    {<Link href="/register" variant="body2">
+                      {"Don't have an account? Sign Up"}
+                    </Link>}
+
+                    {/*<a className="register"><Link to="/register">register </Link></a>*/}
+
+                  </Grid>
+                </Grid>
+                
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
+      </ThemeProvider>
+
+
+      {/*
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit} className="form-signin" >
         <h2 className="form-signin-heading">Please login</h2>
@@ -84,6 +184,7 @@ export function Login() {
 
         {<button className="btn btn-lg btn-primary btn-block" type="submit">Login</button>}
       </form>
+  */}
     </div>
 
   )

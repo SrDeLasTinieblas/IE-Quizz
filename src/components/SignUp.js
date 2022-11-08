@@ -61,7 +61,7 @@ export default function SignUp() {
 
 const PeticionPost= (e) =>{
   e.preventDefault();
-  console.log('Usuario == ' + "Usuario.firstName");
+  //console.log('Usuario == ' + Usuario.Nombres);
   //Objeto[target.name] = objeto[target.value]
   axios.post(UrlPost, data
     /*{
