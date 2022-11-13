@@ -20,7 +20,8 @@ import axios from "axios";
 import { useEffect } from 'react';
 
 
-const UrlGet = "https://localhost:7163/usuarios/loginUsuario";
+const UrlPost = "https://localhost:7163/usuarios/loginUsuario";
+const UrlGet = "https://localhost:7163/getAlumnodato";
 
 function Copyright(props) {
 
@@ -72,7 +73,7 @@ export default function SignInSide() {
     setUsername({ ...username, [name]: value })
     console.log(name, value)
   }
-//https://localhost:7163/usuarios/loginUsuario
+// https://localhost:7163/usuarios/loginUsuario
   const [username, setUsername] = useState({
     email: '',
     password: ''
@@ -107,9 +108,23 @@ export default function SignInSide() {
     });*/
   };
 
+  const [Email, setEmail] = useState([])
+  const [Password, setPassword] = useState([])
+  const [data, setData] = useState({
+    /*apellidos: "",
+    edad: "",
+    email: "",
+    fecha: "",
+    idAlumno: 0,
+    nombres: "",
+    pass: "",
+    usuario: ""*/
+})
+
   const iniciarSesion = async() => {
     //console.log("email: " +username.email, "password:"+username.password);
-    axios.post(UrlGet,
+//--------------------------------POST----------------------------------------
+    /*axios.post(UrlPost,
       {
         email: username.email,
         pass: username.password
@@ -117,15 +132,52 @@ export default function SignInSide() {
       ).then(response =>{
         console.log(response.data);
     }).catch(err => console.log("error: "+err));
-
-    /*await axios.get(UrlGet, {params: {email: useState.email, password: useState.pass}}).
+*/
+//------------------------------------------------------------------------------
+    getUsuario();
+    /*await axios.get(UrlPost, {params: {email: useState.email, password: useState.pass}}).
     then(response => {
       console.log(response.data);
     })
     .catch(err => {
       console.log(err);
     })*/
+
+    console.log(data[0].email)
+    console.log(data[0].pass)
+
+    console.log(username.email)
+    console.log(username.password)
+
+    if (data[0].email == username.email && data[0].pass == username.password) {
+      navigate('/')
+      alert("exito")
+      //await login(username.email, username.password)
+    }
+    else {
+      alert("Email not found")
+    }
+
   }
+
+  const getUsuario = () => {
+    //UrlGet
+    fetch(UrlGet)
+    .then(response => response.json())
+    .then(response => setData(response))
+  }
+
+  
+  /*const getUsuario = async() =>{
+    fetch(UrlGet)
+    .then(response => response.json())
+    .then(data => 
+      //console.log(data)
+      setData(data)
+      );
+    }
+  */
+  
 
   return (
     <ThemeProvider theme={theme}>

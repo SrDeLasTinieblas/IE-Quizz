@@ -12,20 +12,22 @@ function App() {
     <div className='bg-slate-300 h-screen text-white flex'>
       <AuthProvider >
         <Routes>
-          <Route 
+          {/*<Route path="/" element={<Home />} ></Route>*/}
+          {<Route 
           path="/" 
           element={
             <ProtectRoute>
           <Home />
             </ProtectRoute>
-          } ></Route>
+          } ></Route>}
 
+          {<Route path="/login" element={<Login />} ></Route>} {/* FireBase*/}
+          
           {/*<Route path="/login" element={<SignInSide />} ></Route>*/}
+          {/*<Route path="/register" element={<Register />} ></Route>*/}
 
-          {<Route path="/login" element={<Login />} ></Route>}
-          {<Route path="/register" element={<Register />} ></Route>}
+          {<Route path="/register" element={<SignUp />} ></Route>} {/* FireBase*/}
 
-          {/*<Route path="/register" element={<SignUp />} ></Route>*/}
         </Routes>
       </AuthProvider>
     </div>

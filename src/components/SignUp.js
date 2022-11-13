@@ -1,4 +1,6 @@
 import React from 'react';
+import {useAuth} from '../context/authContext'
+import { useNavigate } from "react-router-dom"
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,26 +17,10 @@ import Container from '@mui/material/Container';
 import axios from "axios"
 import { useState } from 'react';
 
-/*function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}*/
+
+
 const UrlPost = "https://localhost:7163/usuarios/registrando";
 
-
-
-const validandoCampos = () =>{
-  //PeticionPost()
-
-}
 
 const useStyles = styled((theme) => ({
   paper: {
@@ -59,47 +45,43 @@ const useStyles = styled((theme) => ({
 export default function SignUp() {
   const classes = useStyles();
 
-const PeticionPost= (e) =>{
-  e.preventDefault();
-  //console.log('Usuario == ' + Usuario.Nombres);
-  //Objeto[target.name] = objeto[target.value]
-  axios.post(UrlPost, data
-    /*{
-      Usuario: "Usuario.firstName",
-      Pass: "111111",
-      Nombres: "afefeh",
-      Apellidos: "Azucar",
-      Edad: "43",
-      Email: "swss@gmail.com",
-      Fecha: "2000/03/14"
+  const {signup} = useAuth()
+  const navigate = useNavigate()
+  const [error, setError] = useState()
+
+
+const [user, setUser] = useState({
+  email: '',
+  password: ''
+})
+
+  const handleChange = ({target: {name, value}}) => 
+    setUser({...user, [name]: value})
+
+
+
+
+  const handleSubmit =  e => {
+    e.preventDefault()
+    console.log(user)
+    signup(user.email, user.password)
+
+    /*setError('')
+    try{
+      //
+      navigate('/')
+    }catch(err){
+      console.log(err.code)
+      if(err.code === 'auth/invalid-email'){
+        setError('Correo invalido')
+      }else if(err.code === 'auth/weak-password'){
+        setError('Contraseña minimo de de 6 digitos')
+      }
+      else if(err.code === 'auth/email-already-in-use'){
+        setError('Correo ya esta en uso')
+      }
     }*/
-    ).then(response =>{
-      //console.log(response);
-  }).catch(err => console.log("error: "+err));
-}
-  const handleChange = (e) => {
-    const {name, value} = e.target
-    setData({...data,[name]:value})
-    //console.log("console ==> "+ Usuario);
-    //setUsuario({ ...Usuario, [name]: value })
-    //console.log(name, value)
   }
-
-  /*const handleChangePass = ({ target: { name, value } }) => {
-    //console.log("console ==> "+ Usuario);
-    //setPass({ ...Pass, [name]: value })
-    //console.log(name, value)
-  }*/
-
-  const [data, setData] = useState({
-    Usuario: "",
-    Pass: "111111",
-    Nombres: "afefeh",
-    Apellidos: "Azucar",
-    Edad: "43",
-    Email: "swss@gmail.com",
-    Fecha: "2000/03/14"
-  })
 
   /*const [Usuario, setUsuario] = useState({})
   const [Pass, setPass] = useState({})
@@ -121,7 +103,7 @@ const PeticionPost= (e) =>{
         </Typography>
         <form /*action="http://localhost:7000/orden_detalles" method="POST"*/  className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            {/*<Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
                 name="Nombres"
@@ -134,9 +116,9 @@ const PeticionPost= (e) =>{
                 onChange={handleChange}
                 autoFocus
               />
-            </Grid>
+            </Grid>*/}
 
-            <Grid item xs={12} sm={6}>
+            {/*<Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
                 required
@@ -148,10 +130,10 @@ const PeticionPost= (e) =>{
                 onChange={handleChange}
                 autoComplete="lname"
               />
-            </Grid>
+            </Grid>*/}
 
 
-            <Grid item xs={12} sm={6}>
+            {/*<Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
                 name="Usuario"
@@ -164,9 +146,9 @@ const PeticionPost= (e) =>{
                 onChange={handleChange}
                 autoFocus
               />
-            </Grid>
+          </Grid>*/}
 
-            <Grid item xs={12} sm={6}>
+            {/*<Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
                 name="Fecha"
@@ -179,7 +161,7 @@ const PeticionPost= (e) =>{
                 onChange={handleChange}
                 autoFocus
               />
-            </Grid>
+            </Grid>*/}
             
             <Grid item xs={12}>
               <TextField
@@ -188,7 +170,7 @@ const PeticionPost= (e) =>{
                 fullWidth
                 id="email"
                 label="Email Address"
-                name="Email"
+                name="email"
                 //value="Email"
                 onChange={handleChange}
                 autoComplete="email"
@@ -199,7 +181,7 @@ const PeticionPost= (e) =>{
                 variant="outlined"
                 required
                 fullWidth
-                name="Pass"
+                name="password"
                 label="Password"
                 type="password"
                 //value="Pass"
@@ -222,7 +204,7 @@ const PeticionPost= (e) =>{
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={PeticionPost}
+            onClick={handleSubmit}
           >
             Sign Up
           </Button>

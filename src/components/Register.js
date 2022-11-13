@@ -17,7 +17,7 @@ import Container from '@mui/material/Container';
 import axios from "axios"
 import { useState } from 'react';
 
-const UrlPost = "https://localhost:7163/usuarios/registrando";
+const UrlPost = "https://localhost:7163/usuarios/registrandoAlumno";
 
 const useStyles = styled((theme) => ({
   paper: {
@@ -72,8 +72,12 @@ const [Usuario, setUsuario] = useState({
     Fecha: ""
   })
 
+
+
 const PeticionPost= (e) =>{
   e.preventDefault();
+  /*console.log("Fecha:" + Fecha.Fecha)
+  console.log("Email:" + Email.Email)*/
   /*console.log('Usuario == ' + username.Usuario);
   console.log('Usuario == ' + username.Pass);
   console.log('Usuario == ' + username.Nombres);*/
@@ -95,8 +99,18 @@ const PeticionPost= (e) =>{
       Fecha: Fecha.Fecha, /*username.Fecha*/
     }
     ).then(response =>{
-      //console.log(response);
-  }).catch(err => console.log("error: "+err));
+      console.log(response);
+      if(response.data = 'success'){
+        navigate('/')
+        alert("Sucessfull" + response)
+      }
+      else{
+        alert("Error:" + response.data)
+
+      }
+  }).catch(err => 
+    console.log("error: "+err)
+    );
 }
 
 const {signup} = useAuth()
@@ -148,7 +162,12 @@ const handleChangeFecha = ({target: {name, value}}) => {
   Fecha: "2000/03/14"
 })*/
 
-
+const Validando = () => {
+  if(Nombres.length > 0) {
+    
+  }
+    
+}
 
 const handleSubmit = async e => {
   e.preventDefault()
@@ -229,13 +248,14 @@ const handleSubmit = async e => {
 
           {<Grid item xs={12} sm={6}>
             <TextField
+              type="date"
               autoComplete="fname"
-              name="fecha"
+              name="Fecha"
               variant="outlined"
               required
               fullWidth
               id="Fecha"
-              label= "Fecha"
+              label= "Nacimiento"
               //value="Nombres"
               onChange={handleChangeFecha}
               autoFocus
@@ -244,6 +264,7 @@ const handleSubmit = async e => {
           
           <Grid item xs={12}>
             <TextField
+              type='email'
               variant="outlined"
               required
               fullWidth
