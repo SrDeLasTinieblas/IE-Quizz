@@ -59,8 +59,6 @@ const [user, setUser] = useState({
     setUser({...user, [name]: value})
 
 
-
-
   const handleSubmit =  e => {
     e.preventDefault()
     console.log(user)

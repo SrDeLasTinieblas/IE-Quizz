@@ -7,7 +7,7 @@ import preguntas from "./preguntas";
 import axios from "axios"
 import { async } from "@firebase/util"
 
-const UrlPost = "https://localhost:7163/usuarios/agregar";
+const UrlPost = "https://localhost:7163/usuarios/AlumnosConExamenTerminados";
 
 export function Home() {
 
@@ -61,9 +61,9 @@ console.log(pregunta)
     //shopApi.post(peticion, dataPeticion).then(respuesta => { console.log("respuesta.status") })
     await axios.post(UrlPost, 
       {
-        nombre: "User",
+        nombre: user.email.replace('@gmail.com',''),
         email: user.email,
-        puntuacion: String(puntacion)
+        puntuacion: String(puntacion) + "/"+preguntas.length
       }
       ).then(response =>{
     }).catch(err => console.log("error: "+err));
