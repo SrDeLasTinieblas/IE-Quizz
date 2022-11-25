@@ -61,9 +61,11 @@ const [user, setUser] = useState({
 
   const handleSubmit =  e => {
     e.preventDefault()
-    console.log(user)
+    //console.log(user)
     signup(user.email, user.password)
-
+    alert("Registrado correctamente!")
+    navigate('/login')
+    
     /*setError('')
     try{
       //

@@ -7,7 +7,8 @@ import preguntas from "./preguntas";
 import axios from "axios"
 import { async } from "@firebase/util"
 
-const UrlPost = "https://localhost:7163/usuarios/AlumnosConExamenTerminados";
+//const UrlPost = "https://localhost:7163/usuarios/AlumnosConExamenTerminados";
+const UrlPost = "http://www.apiirest.somee.com/usuarios/AlumnosConExamenTerminados";
 
 export function Home() {
 
@@ -63,9 +64,10 @@ console.log(pregunta)
       {
         nombre: user.email.replace('@gmail.com',''),
         email: user.email,
-        puntuacion: String(puntacion) + "/"+preguntas.length
+        puntuacion: String(puntacion) + " / " + preguntas.length
       }
       ).then(response =>{
+        //alert(puntacion)
     }).catch(err => console.log("error: "+err));
   }
   const [Usuario, setUsuario] = useState([]);
@@ -108,8 +110,6 @@ console.log(pregunta)
     alert("CuartaRespuesta");  
   }*/
 
-
-
   function handleAnswerSubmit(isCorrect, e ){
 
     if (isCorrect) setPuntacion(puntacion + 1);
@@ -120,6 +120,7 @@ console.log(pregunta)
       }else{
         setPreguntaAntual(preguntaActual + 1)
         setTiempoRestante(10);
+        //console.log("==> "+puntacion);
       }
   }
 
@@ -162,7 +163,7 @@ console.log(pregunta)
         Tiempo Restante: {tiempoRestante}{" "}
       </span>
      ) :(
-      <button onClick={() => {
+      <button className="next" onClick={() => {
       setTiempoRestante(10);
       setDisabled(false);
       setPreguntaAntual(preguntaActual + 1)

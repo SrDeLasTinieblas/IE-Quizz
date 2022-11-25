@@ -33,7 +33,7 @@ const preguntas = [
             {textoRespuesta: "La bandera, el escudo y el himno nacional", isCorrect: true},
         ],
         imagen: [
-            {img: "https://i.pinimg.com/564x/34/9d/96/349d96088df86fcc36b8be088f7371bc.jpg"}
+            {img: "https://i.pinimg.com/originals/d2/4c/eb/d24ceb78c541c3bc1df6e1ca46f78a27.jpg"}
         ]
     },
     {// 4
@@ -45,7 +45,7 @@ const preguntas = [
             {textoRespuesta: "la cornucopia", isCorrect: false},
         ],        
         imagen: [
-            {img: "https://i.pinimg.com/564x/34/9d/96/349d96088df86fcc36b8be088f7371bc.jpg"}
+            {img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Escudo_nacional_del_Per%C3%BA.svg/800px-Escudo_nacional_del_Per%C3%BA.svg.png"}
         ]
     },//5
     {
@@ -57,7 +57,7 @@ const preguntas = [
             {textoRespuesta: "Miguel Grau Seminario “El caballero de los mares”.", isCorrect: true},
         ],        
         imagen: [
-            {img: "https://i.pinimg.com/564x/34/9d/96/349d96088df86fcc36b8be088f7371bc.jpg"}
+            {img: "https://imgmedia.elpopular.pe/1200x660/elpopular/original/2021/10/08/60fff55d8fcfb155e66c1e9c.webp"}
         ]
     },
     {// 6
@@ -69,7 +69,7 @@ const preguntas = [
             {textoRespuesta: "Se conmemora la Batalla de las Nalgas", isCorrect: false},
         ],        
         imagen: [
-            {img: "https://i.pinimg.com/564x/34/9d/96/349d96088df86fcc36b8be088f7371bc.jpg"}
+            {img: "https://larepublica.pe/resizer/bv2XuyoKqWfY-CKxcCkoHJSb8Go=/480x282/top/smart/cloudfront-us-east-1.images.arcpublishing.com/gruporepublica/ALXMYAK7T5HR5H6VGRQVFQHITE.jpg"}
         ]
     },
     {// 7
@@ -81,7 +81,7 @@ const preguntas = [
             {textoRespuesta: "A 2.530 metros por encima del nivel del mar", isCorrect: false},
         ],        
         imagen: [
-            {img: "https://i.pinimg.com/564x/34/9d/96/349d96088df86fcc36b8be088f7371bc.jpg"}
+            {img: "https://plusultra.com/wp-content/uploads/2021/08/altura-machu-picchu.jpg"}
         ]
     },
     {// 8
@@ -93,7 +93,7 @@ const preguntas = [
             {textoRespuesta: "Cada 10 de junio.", isCorrect: false},
         ],        
         imagen: [
-            {img: "https://i.pinimg.com/564x/34/9d/96/349d96088df86fcc36b8be088f7371bc.jpg"}
+            {img: "https://larepublica.pe/resizer/0tWSMtaIShm51oPG31THYKSQjmE=/480x282/top/smart/cloudfront-us-east-1.images.arcpublishing.com/gruporepublica/6CZTZ7LZFVGW3FWM5FA43UUNVU.png"}
         ]
     },
     {// 9
@@ -105,7 +105,7 @@ const preguntas = [
             {textoRespuesta: "Andrés", isCorrect: false},
         ],        
         imagen: [
-            {img: "https://i.pinimg.com/564x/34/9d/96/349d96088df86fcc36b8be088f7371bc.jpg"}
+            {img: "https://www.grau.pe/wp-content/uploads/2018/04/15780636_1427265753992817_1391530105157120250_n-300x205.jpg"}
         ]
     },
     {// 10
@@ -117,7 +117,7 @@ const preguntas = [
             {textoRespuesta: "Don Omar", isCorrect: false},
         ],        
         imagen: [
-            {img: "https://i.pinimg.com/564x/34/9d/96/349d96088df86fcc36b8be088f7371bc.jpg"}
+            {img: "https://peru.info/archivos/publicacion/175-imagen-171824282019.jpg"}
         ]
     },
     {// 11
@@ -129,7 +129,7 @@ const preguntas = [
             {textoRespuesta: "Jorge Chávez.", isCorrect: true},
         ],        
         imagen: [
-            {img: "https://i.pinimg.com/564x/34/9d/96/349d96088df86fcc36b8be088f7371bc.jpg"}
+            {img: "https://elperuano.pe/fotografia/thumbnail/2017/09/23/000038581M.jpg"}
         ]
     },
     {// 12 Chile, Bolivia, Brasil, Colombia y Ecuador
@@ -141,7 +141,7 @@ const preguntas = [
             {textoRespuesta: "Russia", isCorrect: false},
         ],        
         imagen: [
-            {img: "https://i.pinimg.com/564x/34/9d/96/349d96088df86fcc36b8be088f7371bc.jpg"}
+            {img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PER_orthographic_%28territorial_waters%29.svg/1200px-PER_orthographic_%28territorial_waters%29.svg.png"}
         ]
     },
         {// 12
@@ -153,9 +153,12 @@ const preguntas = [
                 {textoRespuesta: "José Olaya", isCorrect: false},
             ],        
             imagen: [
-                {img: "https://i.pinimg.com/564x/34/9d/96/349d96088df86fcc36b8be088f7371bc.jpg"}
+                {img: "https://infochorrillos.files.wordpress.com/2010/08/olaya.jpg"}
             ]
         }
+
+
+        
     /*{// 13
         titulo: "¿Qué prócer de patria cruzó a nado del Callao a Lima?",
         opciones:[
