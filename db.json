@@ -1,8 +1,0 @@
-{
-  "EndPoint": [
-   {
-    "id": 1,
-    "endpoint": "https://localhost:7163/usuarios/AlumnosConExamenTerminados"
-  }
-  ]
-}
