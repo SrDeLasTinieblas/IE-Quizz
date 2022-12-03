@@ -3,12 +3,17 @@
     margin-left: 90%;
 }
 
+.app{
+    /*grid-area: auto;*/
+}
+
+
 .historia_delPeruIMG{
-    /*background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     width: 100%;
-    height: 100%;*/
+    height: 100%;
 }
 
 .button{
@@ -164,6 +169,18 @@ span{/*
     margin-left: 56%;
 }
 
+.franja-izq{
+    position: absolute;
+    width: 30%; 
+    min-height: 100vh;
+    background: #ff0000;
+}
+.franja-der{
+    width: 30%;
+    min-height: 100vh;
+    float: right;
+    background: #ff0000;
+}
 
 /* Cuando la pantalla es menor a 500px  (tablets y teléfonos inteligentes)*/
 @media only screen and (max-width : 500px) {
@@ -172,13 +189,17 @@ span{/*
         /*height: 80vh;*/
         width: 10px;
         height: 100%;
+        margin-top: -160%;
         margin-right: 10px;
         background-attachment: fixed;        /* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
         background-size: cover;
+        background-image: none;
+        visibility: hidden;
     }
     .imagen{
         margin-top: 30px;
-        margin-left: 100px;
+        margin-left: 110px;
+        display:block;
     }
     .preguntas{
         margin: 0;
@@ -198,7 +219,6 @@ span{/*
     }
     .buttons-Respuesta{
         min-width: 20%;
-    
        /* border-style: groove; */
         border-width: 4px; 
         /*max-width: 20%;*/
@@ -212,6 +232,10 @@ span{/*
     
     }
 }
+
+
+
+
 
 .next{
     /*margin-left: 20%;*/
@@ -231,5 +255,51 @@ span{/*
     text-decoration: none;
     text-transform: uppercase;
 }
+
+p{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 44%;
+    margin: -25px 0 0 -25px; /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    letter-spacing: 5px;
+    word-spacing: 0px;
+    color: #ffffff;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: none;
+}
+
+.puntuacion-final{
+    text-align: center;
+    position: absolute;
+    top: 60%;
+    left: 44.5%;
+    margin: -25px 0 0 -25px; /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
+    display: inline-block;
+    font-family: Arial;
+    font-size: 20px;
+    letter-spacing: 2px;
+    word-spacing: 0px;
+    color: #ffffff;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: none;
+}
+
+.hijo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50, -50);
+}
+
 
 

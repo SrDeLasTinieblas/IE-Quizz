@@ -8,7 +8,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+//import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -18,6 +18,7 @@ import peru from '../images/peru.jpg';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from "axios";
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const theme = createTheme();
 
@@ -38,11 +39,7 @@ export function Login() {
   }
 
   /*useEffect(() => {
-
-
   })*/
-
-
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -129,10 +126,11 @@ export function Login() {
                   onChange={handleChange}
                   autoComplete="current-password"
                 />
-                <FormControlLabel
+                {/*<FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
                   label="Remember me"
-                />
+                />*/}
+                
                 <Button
                   /*type="submit"*/
                   fullWidth
@@ -149,7 +147,7 @@ export function Login() {
                   </Link>
                 </Grid>*/}
                   <Grid item>
-                    {<Link href="/register" variant="body2">
+                    {<Link to="/register" variant="body2">
                       {"Don't have an account? Sign Up"}
                     </Link>}
 

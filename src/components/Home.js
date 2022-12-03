@@ -6,20 +6,22 @@ import { useEffect, useState, useStates } from "react"
 import preguntas from "./preguntas";
 import axios from "axios"
 import { async } from "@firebase/util"
+import bensound from "../sound/bensound-summer.mp3"
 
 //const UrlPost = "https://localhost:7163/usuarios/AlumnosConExamenTerminados";
-const UrlPost = "http://www.apiirest.somee.com/usuarios/AlumnosConExamenTerminados";
+const UrlPost = "https://apirest.ga/usuarios/AlumnosConExamenTerminados";
 
 export function Home() {
 
   const { user, logout, loading } = useAuth()
   const navigate = useNavigate()
 
-  const [ preguntaActual, setPreguntaAntual] = useState(0);
+  const [preguntaActual, setPreguntaAntual] = useState(0);
   const [puntacion, setPuntacion] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const [tiempoRestante, setTiempoRestante] = useState(10);
   const [Disabled, setDisabled] = useState(false);
+  /*const [puntuacionFinal, setPuntuacionFinal] = useState();*/
 
   useEffect(() => {
     const intervalo = setInterval(() => {
@@ -29,54 +31,47 @@ export function Home() {
     return () => clearInterval(intervalo);
   }, [tiempoRestante]);
 
-/*  const datos = () => {
-    fetch('https://my-json-server.typicode.com/SrDeLasTinieblas/apiRest/db')
-.then(Response => Response.json())
-.then(data => {setPregunta(data[0])})
-console.log(pregunta)
-  }*/
-
-  /*useEffect(() =>
-    fetch("https://my-json-server.typicode.com/SrDeLasTinieblas/apiRest/db").then
-    (res=>console.log(res))
-  )*/
-
-  //const [ pregunta, setPregunta ] = useState();
-  /*useEffect(() => {
-    fetch('https://my-json-server.typicode.com/SrDeLasTinieblas/apiRest/db')
-      .then((res) => res.json())
-      .then((dato) => setPregunta(dato))
-      /*.catch((err) => console.log("dddd"+err));  
-     console.log(dato)
-    
-  },[])*/
-
-
   const handleLogout = async () => {
     await logout()
     navigate('/login')
   }
+  const sleep = ms => new Promise(
+    resolve => setTimeout(resolve, ms)
+  );
 
-  const PeticionPost= async() =>{
+  const PeticionPost = async() =>{
+    //fetchData()
     //Access-Control-Allow-Headers: Authorization
     //shopApi.post(peticion, dataPeticion).then(respuesta => { console.log("respuesta.status") })
     await axios.post(UrlPost, 
       {
-        nombre: user.email.replace('@gmail.com',''),
+        nombre: user.email.replace('@gmail.com','').replace('ucvvirtual.edu.pe', ''),
         email: user.email,
         puntuacion: String(puntacion) + " / " + preguntas.length
       }
       ).then(response =>{
-        //alert(puntacion)
+        /*alert("responde ==> "+response[0])
+        alert(puntacion)*/
     }).catch(err => console.log("error: "+err));
   }
-  const [Usuario, setUsuario] = useState([]);
 
-  const requestInit = {
+  /*async function fetchData() {
+    console.log('start');
+
+    await sleep(5000);
+    setPuntuacionFinal(puntuacionFinal);
+
+    console.log('end');
+  }*/
+
+  //fetchData()
+  //const [Usuario, setUsuario] = useState([]);
+
+  /*const requestInit = {
     method: 'POST', // -- Aqui estamos diciendo que el metodo que vamos a usar es POST --
     headers: { 'Content-Type': 'application/json' }, // -- Aqui estamos diciendo que el tipo de contenido que vamos a enviar es un json --
     body: JSON.stringify(Usuario) // -- Aqui estamos diciendo que el body que vamos a enviar es un json --
-  }
+  }*/
    /* fetch(post, requestInit)
     .then(response => response.json())
     .then(response => setUsuario(response))*/
@@ -117,6 +112,7 @@ console.log(pregunta)
       if(preguntaActual === preguntas.length - 1){
         setIsFinished(true);
         PeticionPost()
+        //console.log(puntuacionFinal)
       }else{
         setPreguntaAntual(preguntaActual + 1)
         setTiempoRestante(10);
@@ -129,13 +125,19 @@ console.log(pregunta)
     <main>
       <div className="app">
         <div className="juego-Terminado">
-          <span > {" "}Obtuviste {puntacion} de {preguntas.length} {" "}</span>
-            {/*PeticionPost()*/}
-
+          <p>Game over {" "}<br></br>
+          
+          </p>
+          {<span className="puntuacion-final" > {" "}Obtuviste {puntacion} de {preguntas.length} {" "}</span>}
+          
+            {/*<br>  </br>*/}
           {/*<button>
             volver a jugar
-          </button>*/}
+  </button>*/}
         </div>
+        <div className="franja-izq"></div>
+        <div className="franja-der"></div>
+        <audio src={bensound} autoplay="autoplay" loop="loop"></audio>
       </div>
     </main>
   )
@@ -204,11 +206,14 @@ console.log(pregunta)
 
 
 
+
+
+
     {/*<div className="buttons-next-or-back" >
       <button className="Back" >Back</button>
       <button className="Continue" >Continue</button>
         </div>*/}
-    {<button className="button" onClick={handleLogout}>Logout</button>}
+    {/*<button className="button" onClick={handleLogout}>Logout</button>*/}
 
 
   </div>

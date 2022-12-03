@@ -66,7 +66,7 @@ const preguntas = [
             {textoRespuesta: "Se conmemora.", isCorrect: false},
             {textoRespuesta: "Se conmemora la Batalla de Angamos.", isCorrect: true},
             {textoRespuesta: "Angamos.", isCorrect: false},
-            {textoRespuesta: "Se conmemora la Batalla de las Nalgas", isCorrect: false},
+            {textoRespuesta: "Se conmemora la Batalla de las gamos ", isCorrect: false},
         ],        
         imagen: [
             {img: "https://larepublica.pe/resizer/bv2XuyoKqWfY-CKxcCkoHJSb8Go=/480x282/top/smart/cloudfront-us-east-1.images.arcpublishing.com/gruporepublica/ALXMYAK7T5HR5H6VGRQVFQHITE.jpg"}
@@ -135,7 +135,7 @@ const preguntas = [
     {// 12 Chile, Bolivia, Brasil, Colombia y Ecuador
         titulo: "¿Con qué países limita Perú?",
         opciones:[
-            {textoRespuesta: "Chile,Ecuador,Colombia,OceanoPacifico", isCorrect: true},
+            {textoRespuesta: "Chile-Ecuador-Colombia-OceanoPacifico", isCorrect: true},
             {textoRespuesta: "Ecuador", isCorrect: false},
             {textoRespuesta: "Colombia", isCorrect: false},
             {textoRespuesta: "Russia", isCorrect: false},

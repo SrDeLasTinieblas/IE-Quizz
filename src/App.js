@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Home } from './components/Home';
 import  SignInSide from './components/SignInSide';
 import  {Login} from './components/Login';
@@ -12,6 +12,7 @@ function App() {
     <div className='bg-slate-300 h-screen text-white flex'>
       <AuthProvider >
         <Routes>
+          
           {/*<Route path="/" element={<Home />} ></Route>*/}
           {<Route 
           path="/" 
@@ -26,7 +27,10 @@ function App() {
           {/*<Route path="/login" element={<SignInSide />} ></Route>*/}
           {/*<Route path="/register" element={<Register />} ></Route>*/}
 
-          {<Route path="/register" element={<SignUp />} ></Route>} {/* FireBase*/}
+          {<Route 
+          path="/register" 
+          element={<SignUp />} >
+            </Route>} {/* FireBase*/}
 
         </Routes>
       </AuthProvider>
