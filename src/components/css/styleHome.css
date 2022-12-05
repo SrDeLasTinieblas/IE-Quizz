@@ -8,17 +8,20 @@
 }
 
 
-.historia_delPeruIMG{
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 100%;
-    height: 100%;
+.img-history{
+    width: 30%;
+    min-height: 100vh;
 }
 
+@media only screen and (max-width: 480px) {
+    img {
+      width: 100%;
+    }
+  }
+
 .button{
-    /*margin-left: 20%;*/
-    margin-top: 2%;
+    margin-left: 10%;
+    margin-top: 1%;
     /*min-width: 10%;    
     min-height: 50px;*/
     /*height: 50px;*/
@@ -33,8 +36,9 @@
     font-size: 14px;
     text-decoration: none;
     text-transform: uppercase;
-   /* width: 10%;    
-    height: 50px;*/
+    width: 80%; 
+    height: 70%;
+    /*height: 50px;*/
     /*font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
@@ -69,7 +73,7 @@
     text-transform: uppercase;
     /*color: #555;*/
     /*border-bottom: 1px solid #ddd;*/
-    margin-left: 30%;
+    margin-left: 5%;
     margin-top: -57%;
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
@@ -154,9 +158,10 @@ span{/*
    /* border-style: groove; */
     border-width: 4px; 
     /*max-width: 20%;*/
-    margin-left: 35%;
+    left: 30%;
     padding: 2%;
     display: grid;
+
     /*
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
@@ -166,7 +171,7 @@ span{/*
 }
 
 .imagen{
-    margin-left: 56%;
+    margin-left: 38%;
 }
 
 .franja-izq{
@@ -175,6 +180,7 @@ span{/*
     min-height: 100vh;
     background: #ff0000;
 }
+
 .franja-der{
     width: 30%;
     min-height: 100vh;
@@ -182,14 +188,27 @@ span{/*
     background: #ff0000;
 }
 
+.contenido{
+    position: relative;
+    width: 64%;
+    height: 40px;
+    min-width: auto;
+    height: fit-content;
+    /*background-color: #ff0000;*/
+    left: 34%;
+    margin-top: -51%;
+    margin-block-end: -20;
+    min-height: 80vh;
+}
+
 /* Cuando la pantalla es menor a 500px  (tablets y teléfonos inteligentes)*/
-@media only screen and (max-width : 500px) {
+@media only screen and (max-width : 400px) {
     /*tu CSS*/
     .historia_delPeruIMG{
         /*height: 80vh;*/
         width: 10px;
         height: 100%;
-        margin-top: -160%;
+        margin-top: -155%;
         margin-right: 10px;
         background-attachment: fixed;        /* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
         background-size: cover;
@@ -197,9 +216,9 @@ span{/*
         visibility: hidden;
     }
     .imagen{
-        margin-top: 30px;
-        margin-left: 110px;
-        display:block;
+        margin-top: 0%;
+        margin-left: -10%;
+        display: block;
     }
     .preguntas{
         margin: 0;
@@ -211,8 +230,8 @@ span{/*
         text-transform: uppercase;
         /*color: #555;*/
         /*border-bottom: 1px solid #ddd;*/
-        margin-left: 26px;
-        margin-top: 0%;
+        margin-left: -10%;
+        margin-top: 50%;
         text-transform: uppercase;
         font-family: 'Roboto', sans-serif;
     
@@ -231,15 +250,147 @@ span{/*
        /*padding: 2%;*/
     
     }
+    .contenido{
+        position: relative;
+        width: 74%;
+        height: 40px;
+        min-width: auto;
+        height: fit-content;
+        /*background-color: #ff0000;*/
+        margin-top: 20%;
+        min-height: 80vh;
+        margin-left: -8%;
+    }
+    .button{
+        margin-left: -13%;
+        margin-top: 1%;
+        border-radius: 5px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        color: #333;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        line-height: 50px;
+        font-size: 14px;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 100%; 
+        height: 80%;
+    }
+    p{
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 44%;
+        margin: -25px 0 0 -25px; /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
+        display: inline-block;
+        font-family: 'Roboto', sans-serif;
+        font-size: 40px;
+        letter-spacing: 5px;
+        word-spacing: 0px;
+        color: #000000;
+        font-weight: normal;
+        text-decoration: none;
+        font-style: normal;
+        font-variant: small-caps;
+        text-transform: none;
+    }
+    .juego-Terminado{
+        color: #000000;
+    }
+
+    .next{
+        /*margin-left: 20%;*/
+        margin-top: -2%;
+        min-width: 10%;    
+        /*min-height: 50px;*/
+        /*height: 50px;*/
+        border-radius: 5px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        color: #333;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        line-height: 50px;
+        font-size: 14px;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .tiempo-restante{
+        position: relative;
+        margin-top: 1%;
+        right: 0px; 
+        font-family: Tahoma;
+        font-size: 30px;
+        letter-spacing: 0px;
+        word-spacing: 0px;
+        color: #000000;
+        font-weight: bold;
+        text-decoration: none;
+        font-style: normal;
+        font-variant: normal;
+        text-transform: none;
+    }
+    
+
+
 }
 
 
+/*-----------------------------------------------------------------*/
+@media all and (max-width: 1113px) {
 
+    .buttons-Respuesta{
+        min-width: 20%;
+       /* border-style: groove; */
+        border-width: 4px; 
+        /*max-width: 20%;*/
+        margin-left: 15%;
+    
+       /*display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);*/
+       /*padding: 2%;*/
+    
+    }
+    .contenido{
+        position: relative;
+        width: 74%;
+        height: 40px;
+        min-width: auto;
+        height: fit-content;
+        /*background-color: #ff0000;*/
+        left: 25%;
+        margin-top: -60%;
+        min-height: 80vh;
+    }
+    .tiempo-restante{
+        position: absolute;
+        margin-top: -20%;
+        right: 0px; 
+        font-family: Tahoma;
+        font-size: 30px;
+        letter-spacing: 0px;
+        word-spacing: 0px;
+        color: #000000;
+        font-weight: bold;
+        text-decoration: none;
+        font-style: normal;
+        font-variant: normal;
+        text-transform: none;
+        left: -20%;
+    }
 
+}
 
+/*-----------------------------------------------------------------*/
 .next{
     /*margin-left: 20%;*/
-    margin-top: 1%;
+    margin-top: 2%;
     min-width: 10%;    
     /*min-height: 50px;*/
     /*height: 50px;*/
@@ -255,6 +406,23 @@ span{/*
     text-decoration: none;
     text-transform: uppercase;
 }
+svg{
+    position: absolute;
+    right: 5%;
+}
+
+/*.outer{
+
+    fill:transparent;
+    stroke: #0096da;
+    stroke-width: 10; /* grosor del borde */
+    /*stroke-dasharray: 439; /* numero de relleno del borde, se usa el mismo valor en el script.js */
+    /*transform: rotate(270deg) translate(-150px, 0); 
+    /* giramos el circulo para que su apertura sea en la parte superior 
+    y ajustamos su posicion
+    */
+/**}*/
+
 
 p{
     text-align: center;
@@ -267,7 +435,7 @@ p{
     font-size: 40px;
     letter-spacing: 5px;
     word-spacing: 0px;
-    color: #ffffff;
+    color: #000000;
     font-weight: normal;
     text-decoration: none;
     font-style: normal;
@@ -286,7 +454,7 @@ p{
     font-size: 20px;
     letter-spacing: 2px;
     word-spacing: 0px;
-    color: #ffffff;
+    color: #000000;
     font-weight: normal;
     text-decoration: none;
     font-style: normal;
@@ -299,6 +467,22 @@ p{
     top: 50%;
     left: 50%;
     transform: translate(-50, -50);
+}
+
+.tiempo-restante{
+    position: absolute;
+    top: 3%;
+    right: 0px; 
+    font-family: Tahoma;
+    font-size: 30px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
 }
 
 
